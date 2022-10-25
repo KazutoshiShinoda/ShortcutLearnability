@@ -80,6 +80,7 @@ We also attach some example commands in each experiment.
 
 - Results
   - Biased-AntiBiased-Evaluation.ipynb
+
 ## 3. Visualizing the Loss Landscape
 - Experiments (This will take few days.)
   - plot_surface.py
@@ -110,6 +111,7 @@ We also attach some example commands in each experiment.
 
 - Visualization
   - Please download ParaView.
+
 ## 4. Rissanen Shortcut Analysis
 - Training and Evaluation
   - run_squad.py
@@ -136,6 +138,7 @@ We also attach some example commands in each experiment.
   - run_multiple_choice.py
 - Results
   - RissanenDataAnalysis.ipynb
+
 ## 5. Balancing Shortcut and Anti-shortcut Examples
 - Training and Evaluation
   - run_squad.py
@@ -167,5 +170,6 @@ We also attach some example commands in each experiment.
   ```
 
   - run_multiple_choice.py
+
 - Results
   - Biased-AntiBiased-Evaluation.ipynb
