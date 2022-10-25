@@ -88,7 +88,7 @@ We also attach some example commands in each experiment.
   SEED="42"
   RUN_NAME="bert_squad_vis-aps_1400-ex_seed42"
   PJ_NAME="exqa-squad"
-  CUDA_VISIBLE_DEVICES=0 nohup python -u run_squad_latest.py --project $PJ_NAME --model_type bert --model_name_or_path bert-base-uncased --do_lower_case --do_train --do_eval --do_fewshot_train --num_fewshot_examples 1400 --output_dir $RE_EXQA_OUT_DIR/$RUN_NAME --warmup_ratio 0.1 --num_train_epochs 10 --logging_train_steps 1000 --evaluate_during_training --overwrite_output_dir --threads 4 --do_biased_train --bias_1 answer-position-sentence --bias_1_included_in 0 --bias_2 question-context-similar-sent --bias_2_not_equal answer-position-sentence --bias_3 answer-candidates --bias_3_larger_than 2 --train_file $SQuAD_DIR/train-v1.1.json --predict_file $SQuAD_DIR/dev-v1.1.json --seed $SEED > log/exqa/train/$RUN_NAME &
+  CUDA_VISIBLE_DEVICES=0 nohup python -u run_squad_latest.py --project $PJ_NAME --model_type bert --model_name_or_path bert-base-uncased --do_lower_case --do_train --do_eval --do_fewshot_train --num_fewshot_examples 1400 --output_dir $RE_EXQA_OUT_DIR/$RUN_NAME --warmup_ratio 0.1 --num_train_epochs 10 --logging_train_steps 1000 --evaluate_during_training --overwrite_output_dir --threads 4 --do_biased_train --bias_1 answer-position-sentence --bias_1_included_in 0 --bias_2 question-context-similar-sent --bias_2_not_equal answer-position-sentence --bias_3 answer-candidates --bias_3_larger_than 2 --train_file $SQuAD_DIR/train-v1.1.json --predict_file $SQuAD_DIR/dev-v1.1.json --seed $SEED > log/$RUN_NAME &
   ```
 
   ```
@@ -105,7 +105,7 @@ We also attach some example commands in each experiment.
   --batch_size 256 \
   --width $WIDTH \
   --do_setup \
-  --do_random_plot > log/analysis/visualization/${MODEL_ID}_width-${WIDTH} &
+  --do_random_plot > log/${MODEL_ID}_width-${WIDTH} &
   ```
 
 - Visualization
@@ -130,7 +130,7 @@ We also attach some example commands in each experiment.
   --bias_1 answer-position-sentence --bias_1_included_in 0 \
   --bias_2 question-context-similar-sent --bias_2_not_equal answer-position-sentence \
   --bias_3 answer-candidates --bias_3_larger_than 2 \
-  --train_file $SQuAD_DIR/train-v1.1.json --predict_file $SQuAD_DIR/dev-v1.1.json --seed $SEED > log/analysis/mdl/$RUN_NAME &
+  --train_file $SQuAD_DIR/train-v1.1.json --predict_file $SQuAD_DIR/dev-v1.1.json --seed $SEED > log/$RUN_NAME &
   ```
 
   - run_multiple_choice.py
@@ -163,7 +163,7 @@ We also attach some example commands in each experiment.
   --anti_bias_2_larger_than 1 \
   --train_file $SQuAD_DIR/train-v1.1.json \
   --predict_file $SQuAD_DIR/dev-v1.1.json \
-  --seed $SEED > log/exqa/train/$RUN_NAME &
+  --seed $SEED > log/$RUN_NAME &
   ```
 
   - run_multiple_choice.py
