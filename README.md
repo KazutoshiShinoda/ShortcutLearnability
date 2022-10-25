@@ -12,7 +12,6 @@ We also attach some example commands in each experiment.
 ## 1. Defining shortcut and anti-shortcut examples
 - Extractive QA
   - analyze_datasets.py
-      E.g.,
       ```
       data="${SQuAD_DIR}/train-v1.1.json"
       n_workers="4"
@@ -24,7 +23,6 @@ We also attach some example commands in each experiment.
 ## 2. Behavioral Tests: Learning from Biased Training Sets
 - Training and Evaluation
   - run_squad.py
-    E.g.,
       ```
       SEED="42"
       GPU_ID="0"
@@ -45,7 +43,6 @@ We also attach some example commands in each experiment.
       --seed $SEED > log/$RUN_NAME &
       ```
   - run_multiple_choice.py
-    E.g.,
       ```
       SEED="42"
       RUN_NAME="bert_race_biased-maxlo-1-top50-1_seed${SEED}"
