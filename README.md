@@ -1,9 +1,11 @@
 # ShortcutLearnability
 This is the anonymous repository that can reproduce the results of our paper "Which Shortcut Solution Do Question Answering Models Prefer to Learn?".
 
-The random seeds were 42, 43, 44, 45, and 46.
+The used random seeds were 42, 43, 44, 45, and 46.
+
 We basically used the same hyperparameters as the existing papers.
-We also attach some example commands in each experiment.
+
+We also gave some example commands in each experiment.
 
 ## 0. Environments
 - torch==1.10
@@ -24,14 +26,14 @@ We also attach some example commands in each experiment.
 
 ## 2. Behavioral Tests: Learning from Biased Training Sets
 - Training and Evaluation
-  - run_squad.py
+  - Extractive QA
 
       ```
       SEED="42"
       GPU_ID="0"
       RUN_NAME="bert_squad_3d-biased-aps-qcss-ac_seed${SEED}"
       PJ_NAME="exqa-squad"
-      CUDA_VISIBLE_DEVICES=$GPU_ID nohup python -u run_squad_latest.py --project $PJ_NAME \
+      CUDA_VISIBLE_DEVICES=$GPU_ID nohup python -u run_squad.py --project $PJ_NAME \
       --model_type bert \
       --model_name_or_path bert-base-uncased --do_lower_case \
       --do_train --do_eval --output_dir $RE_EXQA_OUT_DIR/$RUN_NAME --warmup_ratio 0.1 --num_train_epochs 10 --save_steps 200 --logging_train_steps 50 --log_before_train --evaluate_during_training --overwrite_output_dir --threads 4 --do_biased_train \
@@ -46,7 +48,7 @@ We also attach some example commands in each experiment.
       --seed $SEED > log/$RUN_NAME &
       ```
 
-  - run_multiple_choice.py
+  - Multiple-choice QA
 
       ```
       SEED="42"
@@ -83,14 +85,16 @@ We also attach some example commands in each experiment.
 
 ## 3. Visualizing the Loss Landscape
 - Experiments (This will take few days.)
-  - plot_surface.py
+  - Training
 
   ```
   SEED="42"
   RUN_NAME="bert_squad_vis-aps_1400-ex_seed42"
   PJ_NAME="exqa-squad"
-  CUDA_VISIBLE_DEVICES=0 nohup python -u run_squad_latest.py --project $PJ_NAME --model_type bert --model_name_or_path bert-base-uncased --do_lower_case --do_train --do_eval --do_fewshot_train --num_fewshot_examples 1400 --output_dir $RE_EXQA_OUT_DIR/$RUN_NAME --warmup_ratio 0.1 --num_train_epochs 10 --logging_train_steps 1000 --evaluate_during_training --overwrite_output_dir --threads 4 --do_biased_train --bias_1 answer-position-sentence --bias_1_included_in 0 --bias_2 question-context-similar-sent --bias_2_not_equal answer-position-sentence --bias_3 answer-candidates --bias_3_larger_than 2 --train_file $SQuAD_DIR/train-v1.1.json --predict_file $SQuAD_DIR/dev-v1.1.json --seed $SEED > log/$RUN_NAME &
+  CUDA_VISIBLE_DEVICES=0 nohup python -u run_squad.py --project $PJ_NAME --model_type bert --model_name_or_path bert-base-uncased --do_lower_case --do_train --do_eval --do_fewshot_train --num_fewshot_examples 1400 --output_dir $RE_EXQA_OUT_DIR/$RUN_NAME --warmup_ratio 0.1 --num_train_epochs 10 --logging_train_steps 1000 --evaluate_during_training --overwrite_output_dir --threads 4 --do_biased_train --bias_1 answer-position-sentence --bias_1_included_in 0 --bias_2 question-context-similar-sent --bias_2_not_equal answer-position-sentence --bias_3 answer-candidates --bias_3_larger_than 2 --train_file $SQuAD_DIR/train-v1.1.json --predict_file $SQuAD_DIR/dev-v1.1.json --seed $SEED > log/$RUN_NAME &
   ```
+
+  - Computing the surface
 
   ```
   MODEL_ID="bert_squad_vis-aps_1400-ex_seed42"
@@ -110,11 +114,11 @@ We also attach some example commands in each experiment.
   ```
 
 - Visualization
-  - Please download ParaView.
+  - Please download ParaView for surface visualization.
 
 ## 4. Rissanen Shortcut Analysis
 - Training and Evaluation
-  - run_squad.py
+  - Extractive QA
 
   ```
   PJ_NAME="exqa-squad"
@@ -123,7 +127,7 @@ We also attach some example commands in each experiment.
   NUM_FEWSHOT="1400"
   KEY="ex-long"
   RUN_NAME="bert_squad_mdl-aps_${KEY}_seed${SEED}"
-  CUDA_VISIBLE_DEVICES=${GPU_ID} nohup python -u run_squad_latest.py --project $PJ_NAME --model_type bert \
+  CUDA_VISIBLE_DEVICES=${GPU_ID} nohup python -u run_squad.py --project $PJ_NAME --model_type bert \
   --model_name_or_path bert-base-uncased --do_lower_case --do_train \
   --do_online_code --do_fewshot_train --num_fewshot_examples $NUM_FEWSHOT \
   --do_fewshot_unique_features --do_exclude_long_context \
@@ -135,13 +139,15 @@ We also attach some example commands in each experiment.
   --train_file $SQuAD_DIR/train-v1.1.json --predict_file $SQuAD_DIR/dev-v1.1.json --seed $SEED > log/$RUN_NAME &
   ```
 
-  - run_multiple_choice.py
+  - Multiple-choice QA
+    - run_multiple_choice.py
+
 - Results
   - RissanenDataAnalysis.ipynb
 
 ## 5. Balancing Shortcut and Anti-shortcut Examples
 - Training and Evaluation
-  - run_squad.py
+  - Extractive QA
 
   ```
   SEED="42"
@@ -149,7 +155,7 @@ We also attach some example commands in each experiment.
   RATIO="0.8"
   RUN_NAME="bert_squad_1d-blend-aps-${RATIO}_5k-ex_seed${SEED}"
   PJ_NAME="exqa-squad"
-  CUDA_VISIBLE_DEVICES=$GPU_ID nohup python -u run_squad_latest.py --project $PJ_NAME \
+  CUDA_VISIBLE_DEVICES=$GPU_ID nohup python -u run_squad.py --project $PJ_NAME \
   --model_type bert \
   --model_name_or_path bert-base-uncased --do_lower_case \
   --do_train --do_eval --output_dir $RE_EXQA_OUT_DIR/$RUN_NAME --warmup_ratio 0.1 --num_train_epochs 10 --logging_train_steps 1000 --save_steps 1000 --num_total_examples 5000 --overwrite_output_dir --threads 4 \
@@ -169,7 +175,8 @@ We also attach some example commands in each experiment.
   --seed $SEED > log/$RUN_NAME &
   ```
 
-  - run_multiple_choice.py
+  - Multiple-choice QA
+    - run_multiple_choice.py
 
 - Results
   - Biased-AntiBiased-Evaluation.ipynb
