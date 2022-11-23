@@ -1,15 +1,13 @@
 # ShortcutLearnability
-This is the anonymous repository that can reproduce the results of our paper "Which Shortcut Solution Do Question Answering Models Prefer to Learn?".
+This is the official implementation of our paper "Which Shortcut Solution Do Question Answering Models Prefer to Learn?", which was accepted at AAAI-23.
+
+## 0. Environments and Setups
+- torch==1.10
+- transformers==4.18.0
 
 The used random seeds were 42, 43, 44, 45, and 46.
 
-We basically used the same hyperparameters as the existing papers.
-
-We also gave some example commands in each experiment.
-
-## 0. Environments
-- torch==1.10
-- transformers==4.18.0
+We basically used the same hyperparameters as the original papers.
 
 ## 1. Defining shortcut and anti-shortcut examples
 - Extractive QA
@@ -114,7 +112,7 @@ We also gave some example commands in each experiment.
   ```
 
 - Visualization
-  - Please download ParaView for surface visualization.
+  - Please download ParaView for surface visualization from [the official site](https://www.paraview.org/).
 
 ## 4. Rissanen Shortcut Analysis
 - Training and Evaluation
@@ -180,3 +178,20 @@ We also gave some example commands in each experiment.
 
 - Results
   - Biased-AntiBiased-Evaluation.ipynb
+
+# Citation
+If you find our codes useful, please cite our paper.
+
+```
+@article{shinoda-etal-2023-shortcut,
+  title={Which Shortcut Solution Do Question Answering Models Prefer to Learn?},
+  journal={Proceedings of the AAAI Conference on Artificial Intelligence},
+  author={Kazutoshi Shinoda and Saku Sugawara and Akiko Aizawa},
+  year={2023}, month={Feb.}
+}
+```
+
+# Contact
+Please feel free to concact Kazutoshi Shinoda if you have suggestions or questions.
+
+Email: shinoda@is.s.u-tokyo.ac.jp / Twitter: [@shino__c](https://twitter.com/shino__c)
