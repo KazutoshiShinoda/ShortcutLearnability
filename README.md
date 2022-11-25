@@ -1,5 +1,5 @@
 # ShortcutLearnability
-This is the official implementation of our paper "Which Shortcut Solution Do Question Answering Models Prefer to Learn?", which was accepted at AAAI-23.
+This is the official implementation of our paper "Which Shortcut Solution Do Question Answering Models Prefer to Learn?" (Kazutoshi Shinoda, Saku Sugawara, Akiko Aizawa) at AAAI-23.
 
 ## 0. Environments and Setups
 - torch==1.10
