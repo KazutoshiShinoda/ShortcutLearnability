@@ -183,15 +183,21 @@ We basically used the same hyperparameters as the original papers.
 If you find our codes useful, please cite our paper.
 
 ```
-@article{shinoda-etal-2023-shortcut,
+@article{Shinoda_Sugawara_Aizawa_2023,
   title={Which Shortcut Solution Do Question Answering Models Prefer to Learn?},
+  volume={37},
+  url={https://ojs.aaai.org/index.php/AAAI/article/view/26590},
+  DOI={10.1609/aaai.v37i11.26590},
+  number={11},
   journal={Proceedings of the AAAI Conference on Artificial Intelligence},
-  author={Kazutoshi Shinoda and Saku Sugawara and Akiko Aizawa},
-  year={2023}, month={Feb.}
+  author={Shinoda, Kazutoshi and Sugawara, Saku and Aizawa, Akiko},
+  year={2023},
+  month={Jun.},
+  pages={13564-13572}
 }
 ```
 
 # Contact
-Please feel free to concact Kazutoshi Shinoda if you have suggestions or questions.
+Please feel free to contact me if you have any suggestions or questions.
 
-Email: shinoda@is.s.u-tokyo.ac.jp / Twitter: [@shino__c](https://twitter.com/shino__c)
+Email: kazutoshi.shinoda0516@gmail.com / Twitter: [@shino__c](https://twitter.com/shino__c)
