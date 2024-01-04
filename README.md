@@ -200,4 +200,4 @@ If you find our codes useful, please cite our paper.
 # Contact
 Please feel free to contact me if you have any suggestions or questions.
 
-Email: kazutoshi.shinoda0516@gmail.com / Twitter: [@shino__c](https://twitter.com/shino__c)
+Email: kazutoshi.shinoda0516@gmail.com / X(Twitter): [@shino__c](https://twitter.com/shino__c)
